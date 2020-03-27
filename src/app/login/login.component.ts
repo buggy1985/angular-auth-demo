@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AngularFire, AuthProviders, AuthMethods} from 'angularfire2';
+import {AngularFireAuth} from '@angular/fire/auth';
 import {Router} from '@angular/router';
 import {AuthService} from '../auth.service';
 
@@ -14,12 +14,12 @@ export class LoginComponent implements OnInit {
   password: string;
 
   constructor(
-    public af: AngularFire,
+    public afAuth: AngularFireAuth,
     private router: Router,
     public authService: AuthService
   ) {
 
-    this.af.auth.subscribe(auth => {
+    this.afAuth.authState.subscribe(auth => {
       if (auth) {
         this.router.navigateByUrl('/members');
       }

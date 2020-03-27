@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AngularFire} from 'angularfire2';
+import {AngularFireAuth} from '@angular/fire/auth';
 import {Router} from '@angular/router';
 
 @Component({
@@ -10,17 +10,17 @@ import {Router} from '@angular/router';
 export class MembersComponent implements OnInit {
   name: any;
 
-  constructor(public af: AngularFire, private router: Router) {
+  constructor(public af: AngularFireAuth, private router: Router) {
 
-    this.af.auth.subscribe(auth => {
+    this.af.authState.subscribe(auth => {
       if (auth) {
-        this.name = auth;
+        this.name = auth.displayName;
       }
     });
   }
 
   logout() {
-    this.af.auth.logout();
+    this.af.auth.signOut();
     this.router.navigateByUrl('/login');
   }
 

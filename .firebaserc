@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "webperftools-app": {
+      "hosting": {
+        "angular-auth-demo-v2": [
+          "webperftools-app"
+        ]
+      }
+    }
+  }
+}

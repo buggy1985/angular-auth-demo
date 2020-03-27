@@ -1,6 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {AngularFire} from 'angularfire2';
-import {Router} from '@angular/router';
 import {AuthService} from '../auth.service';
 
 @Component({
@@ -14,8 +12,6 @@ export class SignupComponent implements OnInit {
   password: string;
 
   constructor(
-    public af: AngularFire,
-    private router: Router,
     public authService: AuthService
   ) {
 
