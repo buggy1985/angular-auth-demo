@@ -5,27 +5,28 @@ import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { EmailComponent } from './email/email.component';
 import { SignupComponent } from './signup/signup.component';
 import { MembersComponent } from './members/members.component';
-import { AuthGuard } from './auth.service';
+import { AuthGuard } from './authguard.service';
 import { routes } from './app.routes';
+import {AuthService} from './auth.service';
 
 
-// Must export the config
 export const firebaseConfig = {
-  apiKey: 'AIzaSyAaTLLTBfT8-tlCXOKlp4LrwQzhVWjbM1Q',
-  authDomain: 'angular-pre.firebaseapp.com',
-  databaseURL: 'https://angular-pre.firebaseio.com',
-  storageBucket: 'angular-pre.appspot.com',
-  messagingSenderId: '796422970338'
+  apiKey: 'AIzaSyCN9InAwVN90ZIP4iXiJvLgOu4J8vJisig',
+  authDomain: 'webperftools-app.firebaseapp.com',
+  databaseURL: 'https://webperftools-app.firebaseio.com',
+  storageBucket: 'webperftools-app.appspot.com',
+  messagingSenderId: '672645113876',
+  projectId: 'webperftools-app',
+  appId: '1:672645113876:web:25e139584b17bead97df01',
+  measurementId: 'G-4866Q88XSD'
 };
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    EmailComponent,
     SignupComponent,
     MembersComponent
   ],
@@ -36,7 +37,10 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     routes
   ],
-  providers: [AuthGuard],
+  providers: [
+    AuthGuard,
+    AuthService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

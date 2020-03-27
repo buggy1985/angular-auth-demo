@@ -1,11 +1,20 @@
 <div class="form-container">
-  <img src="assets/images/lock.svg" id="lock">
+  <h2>Login now</h2>
 
-    <span class="error" *ngIf="error">{{ error }}</span>
+    <span class="error" *ngIf="authService.error">{{ authService.error }}</span>
 
-  <button (click)="loginFb()" id="fb">Login With Facebook</button><br>
-  <button (click)="loginGoogle()" id="google">Login With Google</button>
-  <button routerLink="/login-email" id="email">Email</button>
+  <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
+
+    <input type="text" placeholder="Email address.." (ngModel)="email" name="email" class="txt" required>
+    <input type="password" placeholder="Password" (ngModel)="password" name="password" class="txt" required>
+
+    <button type="submit" [disabled]="!formData.valid" class="basic-btn">Log in</button>
+  </form>
+
+  <hr>
+
+  <button (click)="authService.loginWithFb()" id="fb">Login With Facebook</button><br>
+  <button (click)="authService.loginWithGoogle()" id="google">Login With Google</button>
 
   <a routerLink="/signup" routerLinkActive="active" class="alc">No account? <strong>Create one here</strong></a>
 </div>

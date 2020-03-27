@@ -8,9 +8,7 @@ body {
     background:white;
     padding:3.5em;
     width:500px;
-    position:fixed;
-    left:50%;
-    margin-left:-250px;
+    margin: 0 auto;
 }
 
 button {
@@ -75,7 +73,6 @@ h2 {
   border-radius: 50%;
 }
 
-
 .loading:after {
   content: '';
   position: absolute;
@@ -86,6 +83,41 @@ h2 {
   left: -5px;
   animation: spin 1.2s infinite;
 }
+
+#fb {
+  background:#3B5998 url('assets/images/facebook.svg') no-repeat 14px 6px;
+  background-size: 47px;
+  color:#fff;
+}
+
+#google {
+  border: 1px solid #95989A;
+  background: #fff  url('assets/images/google.svg') no-repeat 25px;
+  background-size: 25px;
+}
+
+#email {
+  background: #ECECEC  url('assets/images/email.svg') no-repeat 25px;
+  background-size: 25px;
+}
+
+@media (max-width: 600px) {
+  #page {
+    padding:1em;
+  }
+  #fb {
+    background:#3B5998;
+  }
+
+  #google {
+    background: #fff;
+  }
+
+  #email {
+    background: #ECECEC;
+  }
+}
+
 
 @keyframes spin {
   100% {
@@ -99,11 +131,6 @@ h2 {
         padding-top:1.2em;
     }
 
-    .form-container {
-        padding:1.2em;
-        width:90%;
-        margin-left:-45%;
-    }
     button {
         font-size:1em;
     }
